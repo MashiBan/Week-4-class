@@ -94,7 +94,7 @@ app.get('/users/courses', userAuthentication, (req, res) => {
 });
 
 app.post('/users/courses/:courseId', userAuthentication, (req, res) => {
-  const courseId = Number(req.params.courseId);
+  const courseId = parseInt(req.params.courseId);
   const course = COURSES.find(c => c.id === courseId && c.published);
   if (course) {
     req.user.purchasedCourses.push(courseId);
